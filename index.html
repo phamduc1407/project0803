@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tài liệu mật của công ty</title>
+		<link rel="shortcut icon" href="./rose.png">
+		<link rel="stylesheet" href="https://use.typekit.net/eqx3jwb.css">
+		<link rel="stylesheet" href="font/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="./style.css">
+		<style>
+	html,body{  cursor:url(https://ani.cursors-4u.net/symbols/images8/sym761.gif), auto;}
+	.block {
+   background-color:black;
+   opacity:0.4;
+   filter:alpha(opacity=40);
+   width:100%;
+   height:100%; /* Not work! */
+}
+</style>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+		<script>document.documentElement.className = "js";
+
+var supportsCssVars = function supportsCssVars() {
+  var e,
+      t = document.createElement("style");
+      
+  return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;
+
+};
+
+supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+	<body class="demo-1 loading">
+		<canvas id="canvas" style="position: absolute;z-index: 1000;width: 100% !important; height: 100% !important">
+		</canvas>
+		<main>
+			<div class="message">Please view this demo on a desktop to see the effect.</div>
+			<div class="frame">
+			</div>
+			<div class="content">
+				<div class="grid">
+					<div class="grid__item pos-2"><div class="grid__item-img" style="background-image:url(./img/img1.jpg);" class="hover" ></div></div>
+					<div class="grid__item pos-3"><div class="grid__item-img" style="background-image:url(./img/img3.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-4"><div class="grid__item-img" style="background-image:url(./img/img4.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-1"><div class="grid__item-img" style="background-image:url(./img/img2.jpg);" class="hover"></div></div>
+
+					<div class="grid__item pos-6"><div class="grid__item-img" style="background-image:url(./img/img5.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-7"><div class="grid__item-img" style="background-image:url(./img/img7.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-8"><div class="grid__item-img" style="background-image:url(./img/img8.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-9"><div class="grid__item-img" style="background-image:url(./img/img6.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-10"><div class="grid__item-img" style="background-image:url(./img/img10.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-5"><div class="grid__item-img" style="background-image:url(./img/img11.jpg);" class="hover"></div></div>
+					<div class="grid__item pos-12"><div class="grid__item-img" style="background-image:url(./img/img12.jpg);" class="hover"></div></div>
+				</div>
+                <h2 class="content__title no-select awesome ">
+					<span><i class="fa fa-heart"></i>Đào Kim Ngân <i class="fa fa-heart"></i></span>
+				</h2>
+				<h2 class="content__title no-select" style="margin-top: 50px">
+					<span class="content__title-sub">Chúc em 8/3 xinh đẹp, vui vẻ, hạnh phúc và bình an</span>
+				</h2>
+			</div>
+			<audio controls autoplay hidden="true" preload="auto">
+
+  		<source src="audio.mp3" type="audio/mpeg">
+			</audio>
+			<img src="https://i.imgur.com/SXCtWIU.gif" style="position:fixed;bottom:250px;height: 150px;left:300px;z-index:9999">
+			<img src="img/hihi2.gif" style="position:fixed;bottom:250px;height: 150px;right:0;z-index:9999">
+
+	</div>
+	
+	<div id="player-container">
+  <div id="play-pause" class="play" style="position:fixed;bottom:-3px;height: 100px;width: 100px;top:0;z-index:9999">Play</div>
+</div>
+		</main>
+        <svg class="cursor" width="80" height="80" viewBox="0 0 80 80">
+			<circle class="cursor__inner" cx="40" cy="40" r="20"></circle>
+		</svg>
+		<audio src="audio.mp3" id="track" loop="loop"></audio>
+		<script src="./script.js"></script>
+		<script type="text/javascript">
+	var track = document.getElementById('track');
+
+	var controlBtn = document.getElementById('play-pause');
+
+	function playPause() {
+	    if (track.paused) {
+	        track.play();
+	        //controlBtn.textContent = "Pause";
+	        controlBtn.className = "pause";
+	    } else { 
+	        track.pause();
+	         //controlBtn.textContent = "Play";
+	        controlBtn.className = "play";
+	    }
+	}
+
+	controlBtn.addEventListener("click", playPause);
+	track.addEventListener("ended", function() {
+	  controlBtn.className = "play";
+	});
+	var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    things = [],
+    thingsCount = 124,
+    mouse = {
+      x: -100,
+      y: -100
+    },
+    minDist = 150;
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// object image
+var image = new Image();
+image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/220px-Heart_coraz%C3%B3n.svg.png';
+// image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Love_heart_uidaodjsdsew.gif/1200px-Love_heart_uidaodjsdsew.gif';
+// image.src = 'https://static.wixstatic.com/media/2cd43b_57438aebde5a4b0fa20c6880a9fafabf~mv2.png/v1/fill/w_320,h_272,fp_0.50_0.50/2cd43b_57438aebde5a4b0fa20c6880a9fafabf~mv2.png';
+
+for (var i = 0; i < thingsCount; i++) {
+  let opacity = Math.random() + 0.4;
+  let thingWidth = (Math.floor(Math.random() * 20) + 20) * (opacity + 0.4);
+  let thingHeight = image.naturalHeight / image.naturalWidth * thingWidth;
+  let speed = Math.random() * 1 + 0.5;
+  things.push({
+    width: thingWidth,
+    height: thingHeight,
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height - thingHeight,
+    speed: speed,
+    vY: speed,
+    vX: 0,
+    d: Math.random() * 1.2 - 0.6, // wind or something like that
+    stepSize: (Math.random()) / 20,
+    step: 0,
+    angle: Math.random() * 180 - 90,
+    rad: Math.random(),
+    opacity: opacity,
+    _ratate: Math.random() // ratate 正負
+  });
+}
+
+function drawThings() {
+  things.map((thing) => {
+    ctx.beginPath();
+    thing.rad = (thing.angle * Math.PI) / 180;
+    ctx.save();
+    var cx = thing.x + thing.width / 2;
+    var cy = thing.y + thing.height / 2;
+    ctx.globalAlpha = thing.opacity;
+    ctx.setTransform(
+      Math.cos(thing.rad),
+      Math.sin(thing.rad),
+      -Math.sin(thing.rad),
+      Math.cos(thing.rad),
+      cx - cx * Math.cos(thing.rad) + cy * Math.sin(thing.rad),
+      cy - cx * Math.sin(thing.rad) - cy * Math.cos(thing.rad)
+    );
+    ctx.drawImage(image, thing.x, thing.y, thing.width, thing.height);
+    ctx.restore();
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawThings();
+}
+
+function update() {
+  things.map((thing) => {
+    var dist = Math.sqrt((thing.x - mouse.x) ** 2 + (thing.y - mouse.y) ** 2);
+    
+    if (dist < minDist) {
+      var force = minDist / (dist * dist),
+          xcomp = (mouse.x - thing.x) / dist,
+          ycomp = (mouse.y - thing.y) / dist,
+          deltaV = force * 2; // deplay when hover mouse
+
+      thing.vX -= deltaV * xcomp;
+      thing.vY -= deltaV * ycomp;
+      
+      if (thing.d * xcomp > 0) {
+        thing.d = 0 - thing.d;
+      }
+    } else {
+      thing.vX *= .98;
+
+      if (thing.vY < thing.speed) {
+        thing.vY = thing.speed
+      }
+
+      thing.vX += Math.cos(thing.step += (Math.random() * 0.05)) * thing.stepSize;
+    }
+    
+    thing.y += thing.vY;
+    thing.x += thing.vX + thing.d;
+    
+    var _angle = Math.random() + 0.2;
+    // stuff.angle += _angle;
+    if (thing._ratate == 0) {
+      thing.angle += _angle;
+    } else {
+      thing.angle -= _angle;
+    }
+    
+    if (thing.y > canvas.height) {
+      reset(thing);
+    }
+
+    if (thing.x > canvas.width || thing.x < (0 - thing.width)) {
+      reset(thing);
+    }
+  });
+}
+
+function reset(thing) {
+  thing.opacity = Math.random() + 0.4;
+  thing.width = (Math.floor(Math.random() * 20) + 20) * (thing.opacity + 0.4);
+  thing.height = image.naturalHeight / image.naturalWidth * thing.width;
+  thing.x = Math.floor(Math.random() * canvas.width);
+  thing.y = 0 - thing.height;
+  thing.speed = Math.random() * 1 + 0.5
+  thing.vY = thing.speed;
+  thing.vX = 0;
+  // thing.angle = 0;
+  // thing.size = 0;
+  thing._ratate = Math.random();
+}
+
+canvas.addEventListener('mousemove', function(e){
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function tick() {
+  draw();
+  update();
+  requestAnimationFrame(tick);
+}
+
+tick();
+</script>
+	</body>
+</html>
